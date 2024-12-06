@@ -13,8 +13,8 @@ struct Aezakmi_test_taskApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            CountryTabBarView()
+               // .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

@@ -10,6 +10,8 @@ import CoreData
 
 @MainActor
 class FavoritesViewModel: ObservableObject {
+    
+    // MARK: Properties
     @Published var favoriteCountries: [FavoriteCountry] = []
     
     func fetchFavoriteCountries() {

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FavoritesList: View {
+    
+    // MARK: Properties
     @StateObject var viewModel = FavoritesViewModel()
     @State private var searchQuery = ""
     

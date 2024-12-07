@@ -9,13 +9,12 @@ import SwiftUI
 
 class CountryDetailViewModel: ObservableObject {
     
+    // MARK: Properties
     @Published var currenciesFormatted = ""
     @Published var languagesFormatted = ""
     @Published var timezonesFormatted = ""
     @Published var alertItem: AlertItem?
     @Published var countryURL = ""
-    
-    
     
     func formatValues(for country: Country) {
         currenciesFormatted = country.currencies

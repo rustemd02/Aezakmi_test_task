@@ -34,6 +34,7 @@ struct NetworkService {
         }
     }
     
+    // если картинка есть в кэше - берем оттуда, иначе скачиваем с сети
     func downloadImage(from urlString: String, completion: @escaping (UIImage?) -> Void) {
         let cacheKey = urlString
         

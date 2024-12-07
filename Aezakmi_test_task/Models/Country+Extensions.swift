@@ -9,7 +9,6 @@ import Foundation
 
 extension Country {
     init(from favoriteCountry: FavoriteCountry) {
-        //self.id = favoriteCountry.id ?? UUID()
         self.name = favoriteCountry.name ?? "Unknown"
         self.officialName = favoriteCountry.officialName ?? "Unknown"
         self.capital = favoriteCountry.capital ?? "Unknown"

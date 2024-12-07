@@ -9,16 +9,18 @@ import SwiftUI
 
 struct CountryViewRow: View {
     
+    // MARK: Properties
     var country: Country
     
     var body: some View {
         HStack {
+            // MARK: Leading part
             FlagImage(urlString: country.flagURLString)
                 .scaledToFill()
                 .frame(width: 125, height: 75)
                 .clipShape(.rect(cornerRadius: 15))
 
-            
+            // MARK: Trailing part
             Text(country.name)
                 .font(.headline)
             Spacer()

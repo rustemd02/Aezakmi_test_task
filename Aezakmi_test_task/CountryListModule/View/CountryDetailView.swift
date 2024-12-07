@@ -10,12 +10,14 @@ import MapKit
 
 struct CountryDetailView: View {
     
+    // MARK: Properties
     var country: Country
     @StateObject var viewModel = CountryDetailViewModel()
     
     var body: some View {
         ScrollView {
             VStack {
+                // MARK: Top segment
                 FlagImage(urlString: country.flagURLString)
                     .scaledToFit()
                     .clipShape(.rect(cornerRadius: 15))
@@ -46,7 +48,7 @@ struct CountryDetailView: View {
                 viewModel.setCountryURL(with: country.name)
             }
             
-            
+            // MARK: Country info
             Grid {
                 GridRow { SmallInfoView(label: "Capital", value: country.capital) }
                 GridRow { SmallInfoView(label: "Population", value: String(country.population)) }
@@ -60,6 +62,7 @@ struct CountryDetailView: View {
             MapView(lattitude: country.latlng[0], longitude: country.latlng[1])
              .padding()
             
+            // MARK: Buttons
             Group {
                 Button {
                     viewModel.addCountryToFavorites(country)
@@ -91,7 +94,7 @@ struct CountryDetailView: View {
     }
 }
 
-
+// MARK: Refactored helper struct
 struct SmallInfoView: View {
     let label: String
     let value: String
@@ -118,6 +121,7 @@ struct SmallInfoView: View {
     }
 }
 
+// MARK: Refactored helper struct
 struct MapView: View {
     let lattitude: Double
     let longitude: Double

@@ -10,6 +10,7 @@ import CoreData
 
 struct CountryListView: View {
     
+    // MARK: Properties
     @StateObject var viewModel = CountryListViewModel()
     @State private var searchQuery = ""
     

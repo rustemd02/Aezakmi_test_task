@@ -8,6 +8,8 @@
 import Foundation
 
 @MainActor class CountryListViewModel: ObservableObject {
+    
+    // MARK: Properties
     @Published var countries: [Country] = []
     @Published var filteredCountries: [Country] = []
     @Published var alertItem: AlertItem?
@@ -23,30 +25,30 @@ import Foundation
             }
         }
     }
-        
-        func fetchCountries() {
-            isLoading = true
-            Task {
-                do {
-                    countries = try await NetworkService.shared.fetchCountriesFromApi()
-                    filteredCountries = countries
-                    isLoading = false
-                } catch {
-                    if let error = error as? NetworkError {
-                        switch error {
-                        case .badRequest:
-                            alertItem = AlertInfo.badRequest
-                        case .badURL:
-                            alertItem = AlertInfo.badURL
-                        case .invalidData:
-                            alertItem = AlertInfo.invalidData
-                        }
+    
+    func fetchCountries() {
+        isLoading = true
+        Task {
+            do {
+                countries = try await NetworkService.shared.fetchCountriesFromApi()
+                filteredCountries = countries
+                isLoading = false
+            } catch {
+                if let error = error as? NetworkError {
+                    switch error {
+                    case .badRequest:
+                        alertItem = AlertInfo.badRequest
+                    case .badURL:
+                        alertItem = AlertInfo.badURL
+                    case .invalidData:
+                        alertItem = AlertInfo.invalidData
                     }
                 }
-                isLoading = false
             }
+            isLoading = false
         }
-        
     }
     
+}
+
 

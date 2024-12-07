@@ -10,6 +10,7 @@ import SwiftUI
 final class ImageLoader: ObservableObject {
     @Published var image: Image? = nil
     
+    // если картинка не сохранена в памяти устройства (в модельке лежит внешняя ссылка) - скачиваем картинку, иначе идем по пути, где она сохранена на устройстве, и берем оттуда
     func load(from urlString: String) {
         if let url = URL(string: urlString), url.scheme == "https" {
             NetworkService.shared.downloadImage(from: urlString) { uiImage in
@@ -36,7 +37,7 @@ final class ImageLoader: ObservableObject {
     }
 }
 
-
+// вспомогательная структура для отображения ProgressView() в кач-ве плейсхолдера
 struct DownloadedImage: View {
     
     var image: Image?

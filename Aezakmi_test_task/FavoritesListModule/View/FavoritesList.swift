@@ -31,7 +31,7 @@ struct FavoritesList: View {
             .navigationDestination(for: FavoriteCountry.self) { country in
                 CountryDetailView(country: Country(from: country))
             }
-            .navigationTitle("Countries")
+            .navigationTitle("Favorites")
             
             
         }

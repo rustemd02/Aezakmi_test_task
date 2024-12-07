@@ -80,6 +80,17 @@
         }
       }
     },
+    "Country is already in your favorites list" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Страна уже добавлена в список избранных"
+          }
+        }
+      }
+    },
     "Currency" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -87,6 +98,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Валюта"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка"
           }
         }
       }

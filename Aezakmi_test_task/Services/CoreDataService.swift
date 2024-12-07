@@ -8,6 +8,10 @@
 import CoreData
 import UIKit
 
+enum CoreDataError: Error {
+    case duplicacyError
+}
+
 class CoreDataService: ObservableObject {
     static let shared = CoreDataService()
     
@@ -25,8 +29,8 @@ class CoreDataService: ObservableObject {
             persistentContainer.viewContext
         }
     
-    func addCountryToFavorites(_ country: Country) {
-        guard !checkForDuplicates(country.id) else { return }
+    func addCountryToFavorites(_ country: Country) throws {
+        guard !checkForDuplicates(country.name) else { throw CoreDataError.duplicacyError }
         
         let favoriteCountry = FavoriteCountry(context: context)
         
@@ -49,15 +53,16 @@ class CoreDataService: ObservableObject {
         saveContext()
     }
     
-    func checkForDuplicates(_ id: UUID) -> Bool {
+    func checkForDuplicates(_ name: String) -> Bool {
         let fetchRequest: NSFetchRequest<FavoriteCountry> = FavoriteCountry.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         fetchRequest.fetchLimit = 1
         
         do {
             let count = try context.count(for: fetchRequest)
             return count > 0
         } catch {
+            print(error.localizedDescription)
             return false
         }
     }

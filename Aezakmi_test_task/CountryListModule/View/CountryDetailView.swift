@@ -22,25 +22,12 @@ struct CountryDetailView: View {
                     .scaledToFit()
                     .clipShape(.rect(cornerRadius: 15))
                     .frame(width: 300, height: 150)
-                .padding()
+                    .padding()
                 
-                Label(title: {
-                    Text(country.name)
-                        .font(.title)
-                        .fontWeight(.bold)
-                }, icon: {
-                    Button {
-                        print("")
-                    } label: {
-                        Image(systemName: "translate")
-                        
-                    }
-                    .buttonStyle(.bordered)
-                    
-                })
-                Text(country.capital)
-                    .font(.caption)
-                    .fontWeight(.medium)
+                
+                Text(country.name)
+                    .font(.title)
+                    .fontWeight(.bold)
                 
             }
             .onAppear {
@@ -88,6 +75,9 @@ struct CountryDetailView: View {
             }
             .buttonStyle(.bordered)
 
+        }
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         }
 
         

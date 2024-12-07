@@ -32,7 +32,12 @@ class CountryDetailViewModel: ObservableObject {
     
     
     func addCountryToFavorites(_ country: Country) {
-        CoreDataService.shared.addCountryToFavorites(country)
+        do {
+            try CoreDataService.shared.addCountryToFavorites(country)
+        } catch {
+            alertItem = AlertInfo.duplicacyError
+            return
+        }
         alertItem = AlertInfo.addedSuccesfully
     }
     

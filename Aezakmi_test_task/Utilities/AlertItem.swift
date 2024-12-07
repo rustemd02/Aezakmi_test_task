@@ -22,5 +22,7 @@ struct AlertInfo {
     static let invalidData = AlertItem(title: Text(NSLocalizedString("Server error", comment: "")), message: Text(NSLocalizedString("invalid_data_error", comment: "")), dismissButton: .default(Text("OK")))
     
     static let addedSuccesfully = AlertItem(title: Text(NSLocalizedString("Success", comment: "")), message: Text(NSLocalizedString("Country added to favorites list", comment: "")), dismissButton: .default(Text("OK")))
+    
+    static let duplicacyError = AlertItem(title: Text(NSLocalizedString("Error", comment: "")), message: Text(NSLocalizedString("Country is already in your favorites list", comment: "")), dismissButton: .default(Text("OK")))
 }
 

@@ -26,6 +26,28 @@
         }
       }
     },
+    "bad_request_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Произошла ошибка с получением данных с сервера."
+          }
+        }
+      }
+    },
+    "bad_url_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервер недоступен. Повторите попытку позже."
+          }
+        }
+      }
+    },
     "Capital" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -71,6 +93,17 @@
     "Hello, World!" : {
 
     },
+    "invalid_data_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Невозможно расшифровать данные."
+          }
+        }
+      }
+    },
     "Languages" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -93,6 +126,9 @@
         }
       }
     },
+    "OK" : {
+
+    },
     "Population" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -106,6 +142,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Население (чел.)"
+          }
+        }
+      }
+    },
+    "Server error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка получения данных"
           }
         }
       }

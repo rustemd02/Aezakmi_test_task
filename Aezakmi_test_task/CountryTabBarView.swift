@@ -10,13 +10,14 @@ import SwiftUI
 struct CountryTabBarView: View {
     var body: some View {
         TabView {
-            Tab("Countries", systemImage: "flag") {
-                CountryListView()
-            }
-            Tab("Favorites", systemImage: "star") {
-                //
-            }
-            .badge(5)
+            CountryListView()
+                .tabItem {
+                    Text(NSLocalizedString("Countries", comment: ""))
+                }
+            FavoritesList()
+                .tabItem {
+                    Text(NSLocalizedString("Favorites", comment: ""))
+                } 
         }
     }
 }

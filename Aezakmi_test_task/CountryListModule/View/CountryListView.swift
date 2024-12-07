@@ -24,10 +24,18 @@ struct CountryListView: View {
             .task {
                 viewModel.fetchCountries()
             }
+            .navigationDestination(for: Country.self) { country in
+                CountryDetailView(country: country)
+            }
         }
         .navigationTitle("Countries")
-        .navigationDestination(for: Country.self) { country in
-            CountryDetailView(country: country)
+
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+        }
+        
+        if viewModel.isLoading {
+            ProgressView()
         }
         
     }

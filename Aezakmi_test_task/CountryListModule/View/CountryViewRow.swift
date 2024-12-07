@@ -13,18 +13,15 @@ struct CountryViewRow: View {
     
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: country.flagURLString)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(.rect(cornerRadius: 15))
-            } placeholder: {
-                Image("flag_placeholder")
-            }
+            FlagImage(urlString: country.flagURLString)
+                .scaledToFill()
+                .frame(width: 125, height: 75)
+                .clipShape(.rect(cornerRadius: 15))
 
             
             Text(country.name)
                 .font(.headline)
+            Spacer()
             Text(country.region)
                 .font(.caption)
         }
@@ -34,7 +31,7 @@ struct CountryViewRow: View {
 }
 
 #Preview {
-    let country = Country(id: UUID(), name: "Russia", officialName: "Россия", capital: "Москва", region: "Europe", population: 0, area: 12, currencies: [Currency(name: "rub", symbol: "ru")], languages: [""], timezones: [""], latlng: [], flagURLString: "https://flagcdn.com/w320/de.png")
-    
-    CountryViewRow(country: country)
+//    let country = Country(name: "Russia", officialName: "Россия", capital: "Москва", region: "Europe", population: 0, area: 12, currencies: [Currency(name: "rub", symbol: "ru")], languages: [""], timezones: [""], latlng: [], flagURLString: "https://flagcdn.com/w320/de.png")
+//    
+//    CountryViewRow(country: country)
 }

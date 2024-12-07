@@ -16,15 +16,10 @@ struct CountryDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                AsyncImage(url: URL(string: country.flagURLString)) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .clipShape(.rect(cornerRadius: 15))
-                        .frame(width: 300, height: 150)
-                } placeholder: {
-                    Image("flag_placeholder")
-                }
+                FlagImage(urlString: country.flagURLString)
+                    .scaledToFit()
+                    .clipShape(.rect(cornerRadius: 15))
+                    .frame(width: 300, height: 150)
                 .padding()
                 
                 Label(title: {
@@ -137,7 +132,7 @@ struct MapView: View {
 
 
 #Preview {
-    let country = Country(id: UUID(), name: "Russia", officialName: "Россия", capital: "Москва", region: "Europe", population: 0, area: 12, currencies: [Currency(name: "rub", symbol: "ru")], languages: [""], timezones: [""], latlng: [52.52, 13.4], flagURLString: "https://flagcdn.com/w320/de.png")
-    
-    CountryDetailView(country: country)
+//    let country = Country(name: "Russia", officialName: "Россия", capital: "Москва", region: "Europe", population: 0, area: 12, currencies: [Currency(name: "rub", symbol: "ru")], languages: [""], timezones: [""], latlng: [52.52, 13.4], flagURLString: "https://flagcdn.com/w320/de.png")
+//    
+//    CountryDetailView(country: country)
 }

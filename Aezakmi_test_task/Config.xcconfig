@@ -7,3 +7,7 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+
+SIMPLE_SLASH = /
+API_URL = https:$(SIMPLE_SLASH)/restcountries.com/v3.1/all?fields=name,capital,region,population,area,currencies,languages,timezones,latlng,capitalinfo,flags
+

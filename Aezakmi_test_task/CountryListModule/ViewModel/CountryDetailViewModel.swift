@@ -13,6 +13,8 @@ class CountryDetailViewModel: ObservableObject {
     @Published var languagesFormatted = ""
     @Published var timezonesFormatted = ""
     
+    @Published var countryURL = ""
+    
     
     func formatValues(for country: Country) {
         currenciesFormatted = country.currencies
@@ -22,6 +24,10 @@ class CountryDetailViewModel: ObservableObject {
                                 .joined(separator: ", ")
         timezonesFormatted = country.timezones
                                 .joined(separator: ", ")
+    }
+    
+    func setCountryURL(with name: String) {
+        countryURL = "\(Bundle.main.object(forInfoDictionaryKey: "BASE_URL") ?? "")\(Bundle.main.object(forInfoDictionaryKey: "COUNTRY_ENDPOINT_URL") ?? "")\(name)"
     }
 
 }

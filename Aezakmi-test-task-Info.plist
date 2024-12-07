@@ -2,8 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>API_URL</key>
-	<string>$(API_URL)</string>
+	<key>ALL_COUNTRIES_ENDPOINT_URL</key>
+	<string>$(ALL_COUNTRIES_ENDPOINT_URL)</string>
+	<key>BASE_URL</key>
+	<string>$(BASE_URL)</string>
+	<key>COUNTRY_ENDPOINT_URL</key>
+	<string>$(COUNTRY_ENDPOINT_URL)</string>
 	<key>SIMPLE_SLASH</key>
 	<string>$(SIMPLE_SLASH)</string>
 </dict>

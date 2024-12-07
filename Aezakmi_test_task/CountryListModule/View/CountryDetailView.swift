@@ -43,6 +43,7 @@ struct CountryDetailView: View {
             }
             .onAppear {
                 viewModel.formatValues(for: country)
+                viewModel.setCountryURL(with: country.name)
             }
             
             
@@ -69,18 +70,18 @@ struct CountryDetailView: View {
                         Image(systemName: "star")
                     })
                 }
+                .padding()
                 
-                Button {
-                    print("Shared")
-                } label: {
-                    Label(title: {
-                        Text(NSLocalizedString("Share", comment: ""))
-                    }, icon: {
-                        Image(systemName: "square.and.arrow.up")
-                        
-                    })
-                    
+                if let url = URL(string: viewModel.countryURL) {
+                    ShareLink(item: url) {
+                        Label(title: {
+                            Text(NSLocalizedString("Share", comment: ""))
+                        }, icon: {
+                            Image(systemName: "square.and.arrow.up")
+                        })
+                    }
                 }
+
             }
             .buttonStyle(.bordered)
 

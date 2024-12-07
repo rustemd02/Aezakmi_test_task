@@ -19,6 +19,7 @@ struct Country: Hashable, Codable, Identifiable {
     let languages: [String]
     let timezones: [String]
     let latlng: [Double]
+    let translations: [String: Translation]
     let flagURLString: String
 
     enum CodingKeys: String, CodingKey {
@@ -32,6 +33,7 @@ struct Country: Hashable, Codable, Identifiable {
         case languages
         case timezones
         case latlng
+        case translations
         case flagURLString = "flags"
     }
     
@@ -44,16 +46,12 @@ struct Country: Hashable, Codable, Identifiable {
         case png
     }
     
-    // Кастомный инициализатор
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        // Декодирование имени
         let nameContainer = try container.nestedContainer(keyedBy: NameKeys.self, forKey: .name)
         name = try nameContainer.decode(String.self, forKey: .common)
         officialName = try nameContainer.decode(String.self, forKey: .official)
-        
-        // Остальные свойства
         capital = (try container.decodeIfPresent([String].self, forKey: .capital)?.first) ?? "Unknown"
         region = try container.decode(String.self, forKey: .region)
         population = try container.decode(Int.self, forKey: .population)
@@ -61,17 +59,16 @@ struct Country: Hashable, Codable, Identifiable {
         timezones = try container.decode([String].self, forKey: .timezones)
         latlng = try container.decode([Double].self, forKey: .latlng)
         
-        // Декодирование флага
         let flagsContainer = try container.nestedContainer(keyedBy: FlagsKeys.self, forKey: .flagURLString)
         flagURLString = try flagsContainer.decode(String.self, forKey: .png)
         
-        // Декодирование валют
         let currenciesDict = try container.decode([String: Currency].self, forKey: .currencies)
         currencies = Array(currenciesDict.values)
         
-        // Декодирование языков
         let languagesDict = try container.decode([String: String].self, forKey: .languages)
         languages = Array(languagesDict.values)
+        
+        translations = try container.decodeIfPresent([String: Translation].self, forKey: .translations) ?? [:]
     }
 }
 

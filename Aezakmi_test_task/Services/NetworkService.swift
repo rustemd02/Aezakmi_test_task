@@ -16,7 +16,7 @@ enum NetworkError: Error {
 struct NetworkService {
     static let shared = NetworkService()
     private let cache = NSCache<NSString, UIImage>()
-    private let apiUrl = Bundle.main.object(forInfoDictionaryKey: "API_URL") as? String ?? ""
+    private let apiUrl = "\(Bundle.main.object(forInfoDictionaryKey: "BASE_URL") ?? "")\(Bundle.main.object(forInfoDictionaryKey: "ALL_COUNTRIES_ENDPOINT_URL") ?? "")"
     
     
     func fetchCountriesFromApi() async throws -> [Country] {

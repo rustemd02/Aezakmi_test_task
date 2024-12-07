@@ -10,22 +10,9 @@
 		CFA87E552D01DA960045D6F5 /* Aezakmi_test_task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aezakmi_test_task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		CFA87F3A2D0456F80045D6F5 /* Exceptions for "Aezakmi_test_task" folder in "Aezakmi_test_task" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Aezakmi-test-task-Info.plist",
-			);
-			target = CFA87E542D01DA960045D6F5 /* Aezakmi_test_task */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CFA87E572D01DA960045D6F5 /* Aezakmi_test_task */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				CFA87F3A2D0456F80045D6F5 /* Exceptions for "Aezakmi_test_task" folder in "Aezakmi_test_task" target */,
-			);
 			path = Aezakmi_test_task;
 			sourceTree = "<group>";
 		};

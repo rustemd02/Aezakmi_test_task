@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct FavoritesList: View {
+    @StateObject var viewModel = FavoritesViewModel()
+    @State private var searchQuery = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        
-        //.onDelete { indices in
-        //viewModel.deleteItems(at: indices)
+        NavigationStack {
+            List {
+                ForEach(viewModel.favoriteCountries) { country in
+                    NavigationLink(value: country) {
+                        CountryViewRow(country: Country(from: country))
+                    }
+                }
+                .onDelete(perform: viewModel.deleteFavoriteCountry)
+            }
+            .task {
+                viewModel.fetchFavoriteCountries()
+            }
+            
+            
+            .navigationDestination(for: FavoriteCountry.self) { country in
+                CountryDetailView(country: Country(from: country))
+            }
+            .navigationTitle("Countries")
+            
+            
+        }
     }
     
 }

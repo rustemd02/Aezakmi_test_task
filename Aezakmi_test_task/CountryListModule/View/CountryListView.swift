@@ -32,8 +32,8 @@ struct CountryListView: View {
             .navigationDestination(for: Country.self) { country in
                 CountryDetailView(country: country)
             }
+            .navigationTitle("Countries")
         }
-        .navigationTitle("Countries")
         .searchable(text: $searchQuery, placement: .automatic, prompt: NSLocalizedString("Search", comment: ""))
         .alert(item: $viewModel.alertItem) { alertItem in
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)

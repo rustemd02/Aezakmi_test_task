@@ -25,8 +25,6 @@ struct CountryViewRow: View {
             Text(country.region)
                 .font(.caption)
         }
-        //Spacer()
-        //.padding(.leading)
     }
 }
 

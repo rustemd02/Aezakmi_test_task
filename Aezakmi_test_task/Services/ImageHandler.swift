@@ -11,10 +11,26 @@ final class ImageLoader: ObservableObject {
     @Published var image: Image? = nil
     
     func load(from urlString: String) {
-        NetworkService.shared.downloadImage(from: urlString) { uiImage in
-            guard let uiImage = uiImage else { return }
-            DispatchQueue.main.async {
-                self.image = Image(uiImage: uiImage)
+        if let url = URL(string: urlString), url.scheme == "https" {
+            NetworkService.shared.downloadImage(from: urlString) { uiImage in
+                guard let uiImage = uiImage else { return }
+                DispatchQueue.main.async {
+                    self.image = Image(uiImage: uiImage)
+                }
+            }
+        } else {
+            let fileURL = URL(fileURLWithPath: urlString)
+            if FileManager.default.fileExists(atPath: fileURL.path) {
+                do {
+                    let imageData = try Data(contentsOf: fileURL)
+                    if let uiImage = UIImage(data: imageData) {
+                        DispatchQueue.main.async {
+                            self.image = Image(uiImage: uiImage)
+                        }
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
         }
     }

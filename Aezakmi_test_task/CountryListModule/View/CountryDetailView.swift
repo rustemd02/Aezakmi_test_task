@@ -62,6 +62,7 @@ struct CountryDetailView: View {
             
             Group {
                 Button {
+                    viewModel.addCountryToFavorites(country)
                     print("Added")
                 } label: {
                     Label(title: {
@@ -70,7 +71,6 @@ struct CountryDetailView: View {
                         Image(systemName: "star")
                     })
                 }
-                .padding()
                 
                 if let url = URL(string: viewModel.countryURL) {
                     ShareLink(item: url) {

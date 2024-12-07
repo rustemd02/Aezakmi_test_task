@@ -69,6 +69,17 @@
         }
       }
     },
+    "Country added to favorites list" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Страна добавлена в список избранных"
+          }
+        }
+      }
+    },
     "Currency" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -89,9 +100,6 @@
           }
         }
       }
-    },
-    "Hello, World!" : {
-
     },
     "invalid_data_error" : {
       "extractionState" : "manual",
@@ -122,6 +130,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Местоположение"
+          }
+        }
+      }
+    },
+    "Nothing here yet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Здесь пока ничего нет"
           }
         }
       }
@@ -175,6 +194,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Поделиться"
+          }
+        }
+      }
+    },
+    "Success" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Успешно"
           }
         }
       }

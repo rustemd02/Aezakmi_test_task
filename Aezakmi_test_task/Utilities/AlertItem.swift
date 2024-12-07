@@ -20,5 +20,7 @@ struct AlertInfo {
     static let badURL = AlertItem(title: Text(NSLocalizedString("Server error", comment: "")), message: Text(NSLocalizedString("bad_url_error", comment: "")), dismissButton: .default(Text("OK")))
     
     static let invalidData = AlertItem(title: Text(NSLocalizedString("Server error", comment: "")), message: Text(NSLocalizedString("invalid_data_error", comment: "")), dismissButton: .default(Text("OK")))
+    
+    static let addedSuccesfully = AlertItem(title: Text(NSLocalizedString("Success", comment: "")), message: Text(NSLocalizedString("Country added to favorites list", comment: "")), dismissButton: .default(Text("OK")))
 }
 

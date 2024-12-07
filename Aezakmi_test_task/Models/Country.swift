@@ -71,9 +71,3 @@ struct Country: Hashable, Codable, Identifiable {
         translations = try container.decodeIfPresent([String: Translation].self, forKey: .translations) ?? [:]
     }
 }
-
-
-struct Translation: Hashable, Codable {
-    let official: String
-    let common: String
-}

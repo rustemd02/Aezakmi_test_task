@@ -5,15 +5,16 @@
 //  Created by Рустем on 06.12.2024.
 //
 
-import Foundation
+import SwiftUI
 
 class CountryDetailViewModel: ObservableObject {
     
     @Published var currenciesFormatted = ""
     @Published var languagesFormatted = ""
     @Published var timezonesFormatted = ""
-    
+    @Published var alertItem: AlertItem?
     @Published var countryURL = ""
+    
     
     
     func formatValues(for country: Country) {
@@ -29,5 +30,13 @@ class CountryDetailViewModel: ObservableObject {
     func setCountryURL(with name: String) {
         countryURL = "\(Bundle.main.object(forInfoDictionaryKey: "BASE_URL") ?? "")\(Bundle.main.object(forInfoDictionaryKey: "COUNTRY_ENDPOINT_URL") ?? "")\(name)"
     }
-
+    
+    
+    func addCountryToFavorites(_ country: Country) {
+        CoreDataService.shared.addCountryToFavorites(country)
+        alertItem = AlertInfo.addedSuccesfully
+    }
+    
+    
+    
 }
